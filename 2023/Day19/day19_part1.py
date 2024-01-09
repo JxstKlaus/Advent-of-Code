@@ -8,7 +8,7 @@ with open(f"2023\Day19\{file}","r") as f:
     data = [line.strip() for line in f]
     workflows = {}
     parts = []
-    #workflows, parts = data[:data.index("")],data[data.index("")+1::]
+    
     for workflow in data[:data.index("")]:
         name,rules = workflow.split("{")
         temp = {}
@@ -28,7 +28,7 @@ with open(f"2023\Day19\{file}","r") as f:
             temp[category[0]] = int(category[1])
         parts.append(temp)
 
-def ruleDecoder(workflow,part): #workflow:  ({'a<2006': 'qkq', 'm>2090': 'A'}, 'rfg'),    part:   {'x': 787, 'm': 2655, 'a': 1222, 's': 2876}
+def ruleDecoder(workflow,part):
     for rule in workflow[0]:
         match rule[1]:
             case ">":
