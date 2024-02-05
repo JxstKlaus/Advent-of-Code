@@ -25,7 +25,7 @@ def det2x2(col1,col2):
 def oppositeVect(vect):
     return (-vect[0],-vect[1])
 
-def divVect(vect1,vect2):
+def subVect(vect1,vect2):
     return (vect1[0]-vect2[0],vect1[1]-vect2[1])
 
 #solving the equation for t and u with matrices:
@@ -39,8 +39,8 @@ count = 0
 for i,(A,velocity1) in enumerate(data):
     for j, (B,velocity2) in enumerate(data[i+1::]):
         det = det2x2(velocity1,oppositeVect(velocity2))
-        det_delta1 = det2x2(divVect(B,A),oppositeVect(velocity2))
-        #det_delta2 = det2x2(velocity1,divVect(B,A))
+        det_delta1 = det2x2(subVect(B,A),oppositeVect(velocity2))
+        #det_delta2 = det2x2(velocity1,subVect(B,A))
         if det != 0:
             #if I were to use det_delta2 value then I had to also replace A with B  ---> it doesn't matter, solution is the same
             intersection = A[0] + velocity1[0]*(det_delta1/det), (A[1] + velocity1[1]*(det_delta1/det))
