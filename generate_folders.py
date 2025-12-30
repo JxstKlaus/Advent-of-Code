@@ -1,12 +1,12 @@
 import os
 
 year = "2025"
-start_day = 1
-end_day = 2
+start_day = 12
+end_day = 12
 
 os.makedirs(year, exist_ok=True)
 
-for i in range(1, end_day + 1):
+for i in range(start_day, end_day + 1):
     folder_name = os.path.join(year, f"Day{i}")
     os.makedirs(folder_name, exist_ok=True)
     
